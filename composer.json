@@ -1,0 +1,29 @@
+{
+    "name": "focalstrategy/actions",
+    "description": "Actions Framework for Laravel",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Shane Glee",
+            "email": "shane@focalstrategy.com"
+        }
+    ],
+    "require": {
+        "myclabs/php-enum": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+          "FocalStrategy\\Actions\\": "src"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FocalStrategy\\Actions\\ActionsServiceProvider"
+            ],
+            "aliases": {
+                "Action": "FocalStrategy\\Actions\\Facade\\Action"
+            }
+        }
+    }
+}
