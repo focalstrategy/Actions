@@ -32,5 +32,9 @@ class ActionsServiceProvider extends ServiceProvider
 
         $this->loadViewsFrom(__DIR__.'/views', 'actions');
         $this->loadRoutesFrom(__DIR__.'/routes.php');
+
+        $this->publishes([
+            __DIR__.'/public' => public_path('vendor/focalstrategy/actions'),
+        ], 'public');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace FocalStrategy\Actions\Core;
 
-use Core\ReportGenerator\Values\ValueInterface;
+use FocalStrategy\Core\ValueInterface;
 use FocalStrategy\ViewObjects\ViewObject;
 
 class ActionData extends ViewObject

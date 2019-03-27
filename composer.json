@@ -9,7 +9,9 @@
         }
     ],
     "require": {
-        "myclabs/php-enum": "^1.5"
+        "myclabs/php-enum": "^1.5",
+        "focalstrategy/core":"^1.0",
+        "focalstrategy/view_objects":"^1.0.1"
     },
     "autoload": {
         "psr-4": {

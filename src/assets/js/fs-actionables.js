@@ -20,7 +20,12 @@
            		if(data.success) {
 
 	                if(data.notify) {
-	               		toastr.success(data.notify);
+	                	if(typeof(toastr) != 'undefined') {
+		               		toastr.success(data.notify);
+	                	}
+	                	else {
+	                		console.log(data.notify);
+	                	}
 	                }
            		}
            		else if(data.error) {
@@ -39,7 +44,12 @@
            			}
 
 	                if(data.notify) {
-	               		toastr.error(data.notify);
+	                	if(typeof(toastr) != 'undefined') {
+		               		toastr.error(data.notify);
+	                	}
+	                	else {
+	                		console.error(data.notify);
+	                	}
 	                }
            		}
 

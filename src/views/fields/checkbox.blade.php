@@ -1,6 +1,6 @@
 <div class="form-group {{ $errors->has($field->getFieldName()) ? 'has-error' : '' }}">
 	@if(!empty($field->getLabel()))
-		{{ Form::label($field->getFieldName(), $field->getLabel()) }}
+		{!! Form::label($field->getFieldName(), $field->getLabel()) !!}
 	@endif
 	<div class="btn-group colour-toggle" data-toggle="buttons">
         <label class="btn btn-danger">
@@ -9,5 +9,5 @@
         </label>
     </div>
 
-	@include('_partials.form_error',['field' => $field->getFieldName()])
+	@include('actions::fields.form_error',['field' => $field->getFieldName()])
 </div>

@@ -11,7 +11,6 @@
 			var content_route = self.data('content-route');
 			if(content_route != null) {
 				self.find('.bigbox-body').html("").load(content_route,function() {
-					Init.inits();
 					self.find('.bigbox-hide-button').hide();
 
 					var found_adjust = self.find('div.bigbox-sm');
@@ -31,10 +30,16 @@
 						self.addClass('in');
 					}
 					$('body').addClass('bigbox-open');
+
+					$btn = $(self.data('calling_button'));
+					$btn.html($btn.data('original_text'));
 				});
 			} else {
 				self.addClass('in');
 				$('body').addClass('bigbox-open');
+
+				$btn = $(self.data('calling_button'));
+				$btn.html($btn.data('original_text'));
 			}
 
 			$('[data-dismiss="modal"]',self).click(self.close);
@@ -71,8 +76,11 @@
 			$bigbox.find('.bigbox-btn-submit').show();
 
 			if($bigbox.length <= 0)  {
-				Logger.error("View: bigbox-ajax is missing");
+				console.error("View: bigbox-ajax is missing");
 			}
+
+			var text = $btn.text();
+			$btn.data('original_text',text);
 
 			$bigbox.data('calling_button',$btn);
 			$bigbox.data('content-route',$btn.data('content-route'));
@@ -89,6 +97,7 @@
 
 				$bigbox.find('.bigbox-btn-submit').hide();
 			}
+			$btn.html('<span class="fa fa-loading fa-spin"></span> Loading…');
 
 			$('.bigbox.ajax').bigbox('show');
 		});
@@ -147,7 +156,12 @@
 	           		}
 
 	           		if(data.notify) {
-	           			toastr.success(data.notify);
+	           			if(typeof(toastr) != 'undefined') {
+		           			toastr.success(data.notify);
+		           		}
+		           		else {
+		           			console.log(data.notify);
+		           		}
 	           		}
 	           	}
 	           	else if(data.error) {
@@ -170,7 +184,12 @@
 	           		}
 
 	           		if(data.notify) {
-	           			toastr.error(data.notify);
+	           			if(typeof(toastr) != 'undefined') {
+		           			toastr.error(data.notify);
+		           		}
+		           		else {
+		           			console.error(data.notify);
+		           		}
 	           		}
 	           	}
 	           	else {
@@ -179,7 +198,12 @@
 	           		}
 
 	           		if(data.notify) {
-	           			toastr.error(data.notify);
+	           			if(typeof(toastr) != 'undefined') {
+		           			toastr.error(data.notify);
+		           		}
+		           		else {
+		           			console.error(data.notify);
+		           		}
 	           		}
 	           	}
 

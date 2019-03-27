@@ -1,1 +1,1 @@
-{{ Form::hidden($field->getFieldName(),null, $field->getAttributes()) }}
+{!! Form::hidden($field->getFieldName(),null, $field->getAttributes()) !!}

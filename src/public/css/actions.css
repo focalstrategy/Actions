@@ -126,7 +126,8 @@
   right: 5%;
   margin: 0 auto;
   padding: 0;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
+  -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
 }
 
 .bigbox.bigbox-sm div.bigbox-footer {
@@ -197,7 +198,8 @@
     width: 90%;
     margin: 0 auto;
     padding: 0;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
+    -webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.95);
   }
 
   .bigbox .bigbox-content .bigbox-header {
