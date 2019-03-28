@@ -20,11 +20,12 @@
            		if(data.success) {
 
 	                if(data.notify) {
-	                	if(typeof(toastr) != 'undefined') {
-		               		toastr.success(data.notify);
+	                	var nfn = window['toast'];
+	                	if(typeof nfn === 'function') {
+		               		toast('success', data.notify);
 	                	}
 	                	else {
-	                		console.log(data.notify);
+	                		console.log('Received notify but can not find the function toast(status, message)');
 	                	}
 	                }
            		}
@@ -44,11 +45,13 @@
            			}
 
 	                if(data.notify) {
-	                	if(typeof(toastr) != 'undefined') {
-		               		toastr.error(data.notify);
+	                	console.log(data.notify);
+	                	var nfn = window['toast'];
+	                	if(typeof nfn === 'function') {
+		               		toast('error', data.notify);
 	                	}
 	                	else {
-	                		console.error(data.notify);
+	                		console.log('Received notify but can not find the function toast(status, message)');
 	                	}
 	                }
            		}
@@ -101,6 +104,16 @@ function onActionComplete(data, $el) {
 
 	if(data.replace_with) {
 		$el.parents('.action_wrap').replaceWith(data.replace_with);
+	}
+
+	if(data.notify) {
+		var nfn = window['toast'];
+    	if(typeof nfn === 'function') {
+       		toast(data.success ? 'success' : 'error', data.notify);
+    	}
+    	else {
+    		console.warn('Received notify but can not find the function toast(status, message)');
+    	}
 	}
 
 	if(data.js_callback) {
