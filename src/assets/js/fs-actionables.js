@@ -106,15 +106,15 @@ function onActionComplete(data, $el) {
 		$el.parents('.action_wrap').replaceWith(data.replace_with);
 	}
 
-	if(data.notify) {
-		var nfn = window['toast'];
-    	if(typeof nfn === 'function') {
-       		toast(data.success ? 'success' : 'error', data.notify);
-    	}
-    	else {
-    		console.warn('Received notify but can not find the function toast(status, message)');
-    	}
-	}
+	// if(data.notify) {
+	// 	var nfn = window['toast'];
+ //    	if(typeof nfn === 'function') {
+ //       		toast(data.success ? 'success' : 'error', data.notify);
+ //    	}
+ //    	else {
+ //    		console.warn('Received notify but can not find the function toast(status, message)');
+ //    	}
+	// }
 
 	if(data.js_callback) {
 		var fn = window[data.js_callback];
