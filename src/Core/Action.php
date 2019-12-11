@@ -3,7 +3,7 @@
 namespace FocalStrategy\Actions\Core;
 
 use FocalStrategy\Actions\Core\ActionData;
-use App\User;
+use Illuminate\Foundation\Auth\User;
 use FocalStrategy\Core\Buttons\Button;
 use FocalStrategy\Core\ValueInterface;
 use FocalStrategy\Actions\Core\ActionException;
