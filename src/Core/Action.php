@@ -184,7 +184,7 @@ abstract class Action implements Renderable
 
     public function isForm() : bool
     {
-        if ($this->method == 'GET' && count($this->fields == 0)) {
+        if ($this->method == 'GET' && count($this->fields) == 0) {
             return false;
         }
 
