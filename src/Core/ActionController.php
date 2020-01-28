@@ -35,9 +35,15 @@ class ActionController
     public function save(Request $req, string $action_name)
     {
         $user = null;
-        if (Auth::check()) {
-            $user = Auth::user();
-        } elseif (config('app.debug')) {
+
+        foreach (config('auth.guards') as $guard => $details) {
+            if (Auth::guard($guard)->check()) {
+                $user = Auth::guard($guard)->user();
+                break;
+            }
+        }
+
+        if (!$user && config('app.debug')) {
             $user = new User();
         }
 
