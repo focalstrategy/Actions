@@ -3,7 +3,7 @@
 namespace FocalStrategy\Actions;
 
 use App;
-use App\User;
+use Illuminate\Foundation\Auth\User;
 use Auth;
 use FocalStrategy\Actions\Core\Action;
 use FocalStrategy\Actions\Core\ActionRenderType;
